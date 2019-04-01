@@ -95,7 +95,7 @@ class Engine(object):
   now!) and then the docstring for the `Engine` constructor.
   """
 
-  def __init__(self, rows, cols, occlusion_in_layers=True):
+  def __init__(self, rows, cols, nb_action, occlusion_in_layers=True):
     """Construct a new pycolab game engine.
 
     Builds a new pycolab game engine, ready to be populated with a `Backdrop`,
@@ -212,6 +212,7 @@ class Engine(object):
     self._cols = cols
     self._occlusion_in_layers = occlusion_in_layers
 
+    self._nb_action = nb_action
     # This game's Plot object
     self._the_plot = plot.Plot()
 
@@ -643,6 +644,11 @@ class Engine(object):
     return self._the_plot
 
   @property
+  def nb_action(self):
+    return self._nb_action
+
+
+  @property
   def rows(self):
     return self._rows
 
@@ -954,6 +960,9 @@ class Palette(object):
         raise ValueError('Palette constructor requires legal characters to be '
                          'actual single charaters. "{}" is not.'.format(char))
     self._legal_characters = set(legal_characters)
+
+  def __deepcopy__(self, memodict={}):
+      return self
 
   def __getattr__(self, name):
     return self._actual_lookup(name, AttributeError)
