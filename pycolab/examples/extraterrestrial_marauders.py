@@ -98,7 +98,8 @@ def make_game():
           [(c, DownwardLaserBoltSprite) for c in DOWNWARD_BOLT_CHARS]),
       drapes=dict(X=MarauderDrape,
                   B=BunkerDrape),
-      update_schedule=['P', 'B', 'X'] + list(_ALL_BOLT_CHARS))
+      update_schedule=['P', 'B', 'X'] + list(_ALL_BOLT_CHARS),
+      nb_action=5)
 
 
 class BunkerDrape(plab_things.Drape):
