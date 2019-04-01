@@ -66,7 +66,8 @@ def make_game():
                '3': ascii_art.Partial(SlidingSprite, 2),
                '4': ascii_art.Partial(SlidingSprite, 3)},
       drapes={'@': RollingDrape},
-      z_order='12@34')
+      z_order='12@34',
+      nb_action=5)
 
 
 class RollingDrape(things.Drape):
