@@ -33,7 +33,8 @@ def ascii_art_to_game(art,
                       sprites=None, drapes=None, backdrop=things.Backdrop,
                       update_schedule=None,
                       z_order=None,
-                      occlusion_in_layers=True):
+                      occlusion_in_layers=True,
+                      nb_action=0):
   """Construct a pycolab game from an ASCII art diagram.
 
   This function helps to turn ASCII art diagrams like the following
@@ -240,7 +241,7 @@ def ascii_art_to_game(art,
 
   ### 5. Construct engine; populate with Sprites and Drapes ###
 
-  game = engine.Engine(*art.shape, occlusion_in_layers=occlusion_in_layers)
+  game = engine.Engine(*art.shape, occlusion_in_layers=occlusion_in_layers, nb_action=nb_action)
 
   # Sprites and Drapes are added according to the depth-first traversal of the
   # update schedule.
