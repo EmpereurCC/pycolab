@@ -62,7 +62,8 @@ def make_game():
   return ascii_art.ascii_art_to_game(
       GAME_ART, what_lies_beneath=' ',
       sprites={'P': PlayerSprite},
-      backdrop=RiverBackdrop)
+      backdrop=RiverBackdrop,
+      nb_action=2)
 
 
 class PlayerSprite(prefab_sprites.MazeWalker):
